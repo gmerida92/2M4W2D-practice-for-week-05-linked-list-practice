@@ -8,11 +8,16 @@ class DoublyLinkedListNode {
 
 class DoublyLinkedList {
   constructor() {
-    // Your code here
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
   addToHead(val) {
-    // Your code here
+    let newNode = new DoublyLinkedListNode(val);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
   }
 
   addToTail(val) {
