@@ -15,18 +15,30 @@ class DoublyLinkedList {
 
   addToHead(val) {
     let newNode = new DoublyLinkedListNode(val);
-    let current = this.head;
-    if(!current)
-    {
+    if (!this.head) {
+      this.head = newNode;
       this.tail = newNode;
     }
-    newNode.next = this.head;
-    this.head = newNode;
+    else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
     this.length++;
   }
 
   addToTail(val) {
-    // Your code here
+    let newNode = new DoublyLinkedListNode(val);
+    if (!this.tail) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+    else {
+      newNode.prev = this.tail;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
   }
 
   // You can use this function to help debug
